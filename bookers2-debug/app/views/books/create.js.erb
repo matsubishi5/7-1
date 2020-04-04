@@ -1,3 +1,2 @@
-$("textarea").val("");
-$(".new_book").before('<tr class="books_<%= @book.id %>"></tr>');
-$(".books_<%= @book.id %>").html("<%= j(render 'books/books', book: @book ) %>");
+$("textarea").val('');
+$(".new_book").html("<%= j(render 'books/books', books: @books) %>");
