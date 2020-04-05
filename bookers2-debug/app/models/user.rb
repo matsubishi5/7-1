@@ -17,6 +17,9 @@ class User < ApplicationRecord
   validates :name, length: {maximum: 20, minimum: 2}
   validates :introduction, length: { maximum: 50 }
 
+  geocoded_by :address_city
+  after_validation :geocode
+
   def favorited_by?(book)
     favorites.where(book_id: book.id).exists?
   end
